@@ -9,7 +9,8 @@ const formData = ref({
   confirmPassword: '',
   isAustralian: false,
   reason: '',
-  gender: ''
+  gender: '',
+  suburb: 'Clayton'
 })
 
 const submittedCards = ref([])
@@ -96,15 +97,15 @@ const validatePassword = (blur) => {
   }
 }
 
-const validateConfirmReason = (blur) => {
+const validateReasonContainWord = (blur) => {
   if (formData.value.reason.includes('friend')) {
-    if (blur) errors.value.reason = 'Great to have a frieng.'
+    if (blur) reasonHasFriend.value = true;
   } else {
-    errors.value.reason = null
+    reasonHasFriend.value = false;
   }
 }
 
-
+const reasonHasFriend = ref(false)
  
 </script>
 
@@ -193,14 +194,17 @@ const validateConfirmReason = (blur) => {
               rows="3"
               v-model="formData.reason"
               @blur="() => validateReason(true)"
-                @input="() => validateReason(false)"
+                @input="() => {validateReason(false);validateReasonContainWord(true)}"
             ></textarea>
-            <div v-if="errors.reason" class="text-danger">
-                {{ errors.reason }}
-              </div>
-            <div v-if="errors.reason" style="color: green;">{{ errors.reason }}</div>
+            <div v-if="errors.reason" class="text-danger">{{ errors.reason }} </div>
+            <div v-if="reasonHasFriend" style="color: green;">Great to have a friend</div>
           </div>
-          <div class="text-center">
+          <div class="mb-3">
+            <label for="suburb" class="form-label">Suburb</label>
+            <input type="text" class="form-control" id="suburb" v-bind:value="formData.suburb" />
+          </div>
+
+          <div class="text-center" style="margin-bottom: 500px;">
             <button type="submit" class="btn btn-primary me-2">Submit</button>
             <button type="button" class="btn btn-secondary" @click="clearForm">Clear</button>
           </div>
