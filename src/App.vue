@@ -53,6 +53,7 @@ import LibraryRegistrationForm from './components/LibraryRegistrationForm.vue'
   padding: 20px;
   /* background-color: #e0bfbf; */
   border-radius: 10px;
+
 }
 
 /* Class selectors */
