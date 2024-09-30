@@ -6,7 +6,7 @@ import FirebaseSigninView from '@/views/FirebaseSigninView.vue'
 import FirebaseRegisterView from '@/views/FirebaseRegisterView.vue'
 import { useAuth } from './authenticate'
 import AddBookView from '@/views/AddBookView.vue'
-
+import GetBookCountView from '../views/GetBookCountView.vue'
 
 
 const {isAuthenticated} = useAuth ()
@@ -17,6 +17,11 @@ const routes = [
     name: 'Home',
     component: HomeView
   },
+    {
+      path: '/GetBookCount',
+      name: 'GetBookCount',
+      component: GetBookCountView
+    },
   {
     path: '/about',
     name: 'About',
@@ -68,3 +73,5 @@ router.beforeEach((to, from, next) => {
 });
 
 export default router
+
+
