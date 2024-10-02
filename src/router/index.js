@@ -7,7 +7,7 @@ import FirebaseRegisterView from '@/views/FirebaseRegisterView.vue'
 import { useAuth } from './authenticate'
 import AddBookView from '@/views/AddBookView.vue'
 import GetBookCountView from '../views/GetBookCountView.vue'
-
+import WeatherView from '../views/WeatherView.vue'
 
 const {isAuthenticated} = useAuth ()
 
@@ -16,6 +16,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: HomeView
+  },
+  {
+    path: '/WeatherCheck',
+    name: 'WeatherCheck',
+    component: WeatherView
   },
     {
       path: '/GetBookCount',
