@@ -8,6 +8,7 @@ import { useAuth } from './authenticate'
 import AddBookView from '@/views/AddBookView.vue'
 import GetBookCountView from '../views/GetBookCountView.vue'
 import WeatherView from '../views/WeatherView.vue'
+import CountBookAPI from '../views/CountBookAPI.vue'
 
 const {isAuthenticated} = useAuth ()
 
@@ -16,6 +17,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: HomeView
+  },
+  {
+    path: '/CountBookAPI',
+    name: 'CountBookAPI',
+    component: CountBookAPI
   },
   {
     path: '/WeatherCheck',
